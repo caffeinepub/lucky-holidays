@@ -1,15 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Build a multi-page tours and travels website for LUCKY HOLIDAYS with a consistent header, navigation, and warm travel-themed design.
+**Goal:** Update the footer attribution text and replace vehicle card placeholder images with photorealistic vehicle-specific images.
 
 **Planned changes:**
-- Create a shared header with the LUCKY HOLIDAYS logo and company name (clicking logo navigates to Home), and a navigation bar with links to: Home, About, Vehicles, Contact Us, and Ratings
-- Build a Home page with a hero banner, company introduction, key service highlights (tour packages, vehicle rentals, guided trips), and a call-to-action button to the Contact page
-- Build an About page with company story, mission, and values
-- Build a Vehicles page with a card grid showing vehicle image, name, type, capacity, and description
-- Build a Contact Us page displaying phone number 9663202989 (tel link) and email lakkiholidays@gmail.com (mailto link), plus a contact form with name, email, and message fields
-- Build a Ratings page where users can submit a 1–5 star rating and review text; display all reviews, review text, and average rating; persist ratings in the backend
-- Apply a warm earthy color palette (amber, warm orange, deep green) with bold headings, card-based layouts, and fully responsive design for mobile and desktop
+- Update the footer attribution line in `Footer.tsx` to read "Built with using caffeine.ai Swaroop Team"
+- Replace placeholder images on all six vehicle cards in `Vehicles.tsx` with unique photorealistic 360-degree-style images for Innova Crysta, Fortuner, Ertiga, Tempo Traveller, Force Traveller, and Luxury Coach
 
-**User-visible outcome:** Visitors can browse all pages of the LUCKY HOLIDAYS website, view vehicles and services, submit contact inquiries, and read or leave customer ratings and reviews.
+**User-visible outcome:** The footer shows the updated credit line, and each vehicle card on the Vehicles page displays its own accurate photorealistic image instead of a generic placeholder.

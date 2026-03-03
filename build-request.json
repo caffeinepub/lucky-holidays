@@ -1,163 +1,66 @@
 {
   "kind": "build_request",
-  "title": "LUCKY HOLIDAYS Tours & Travels Website",
+  "title": "Update footer attribution and add 360-degree vehicle images",
   "projectName": "Lucky Holidays",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create a multi-page tours and travels website for LUCKY HOLIDAYS with a consistent header containing a clickable travel logo and company name 'LUCKY HOLIDAYS'. Clicking the logo navigates to the Home page. Include a navigation bar with links to: Home, About, Vehicles, Contact Us, and Ratings.",
+      "id": "REQ-24",
+      "text": "In `frontend/src/components/Footer.tsx`, update the attribution/credit line to read 'Built with using caffeine.ai Swaroop Team'. The existing deep-green background, brand info, navigation links, and contact details must remain unchanged.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "company name is LUCKY HOLIDAYS WITH TRAVEL LOGO if press the logo its need to open"
+          "change to built with using caffeine.ai Swaroop Team"
         ]
       },
       "acceptanceCriteria": [
-        "Header displays the LUCKY HOLIDAYS travel logo alongside the company name on all pages",
-        "Clicking the logo navigates the user to the Home page",
-        "Navigation bar includes links: Home, About, Vehicles, Contact Us, Ratings",
-        "Active navigation link is visually highlighted",
-        "Header and navigation are consistent across all pages"
+        "The footer attribution line reads 'Built with using caffeine.ai Swaroop Team'",
+        "No other footer content (links, contact info, background color) is altered"
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Create a Home page with a hero section showcasing travel destinations, a brief introduction to LUCKY HOLIDAYS, highlights of key services (tour packages, vehicle rentals, guided trips), and a call-to-action button directing users to the Contact page.",
+      "id": "REQ-25",
+      "text": "In `frontend/src/pages/Vehicles.tsx`, replace the current placeholder images on each vehicle card with generated 360-degree-style vehicle images. Each of the six vehicles (Innova Crysta, Fortuner, Ertiga, Tempo Traveller, Force Traveller, Luxury Coach) must display its own photorealistic image stored in `frontend/public/assets/generated`. The card layout, vehicle name, capacity, features, and badge labels must remain intact.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "pages home"
+          "vehicles place the correct vehicles pictures 360 degree pictures"
         ]
       },
       "acceptanceCriteria": [
-        "Home page renders with a visually compelling hero/banner section",
-        "Brief company introduction text is displayed",
-        "Key services or features are highlighted with icons or cards",
-        "A call-to-action button is present and navigates to the Contact Us page"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Create an About page describing the LUCKY HOLIDAYS company, its mission, values, and story in the tours and travels industry.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "about"
-        ]
-      },
-      "acceptanceCriteria": [
-        "About page renders with company history/story section",
-        "Mission and values are presented clearly",
-        "Page is accessible from the navigation bar"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Create a Vehicles page that displays available vehicles for travel packages in a card-based grid layout, each card showing a vehicle image placeholder, vehicle name, type, capacity, and a brief description.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "veichels"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Vehicles page renders with a grid of vehicle cards",
-        "Each card displays a vehicle image, name, type, capacity, and description",
-        "Page is accessible from the navigation bar"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Create a Contact Us page that prominently displays the company phone number 9663202989 and email address lakkiholidays@gmail.com, along with a contact form (name, email, message fields) for inquiry submissions.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "contact us",
-          "contact number 9663202989 and email lakkiholidays@gmail.com"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Contact page displays phone number 9663202989 prominently",
-        "Contact page displays email lakkiholidays@gmail.com prominently",
-        "Email address is a clickable mailto link",
-        "Phone number is a clickable tel link",
-        "A contact form with name, email, and message fields is present",
-        "Page is accessible from the navigation bar"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Create a Ratings page (or section) where customer reviews and star ratings for LUCKY HOLIDAYS are displayed. Store ratings and reviews in the backend and allow users to submit a rating (1–5 stars) and a short review text.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "rating section"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Ratings page displays existing customer reviews with star ratings and review text",
-        "Users can submit a new rating (1–5 stars) and review comment",
-        "Submitted ratings are persisted in the backend",
-        "Average overall rating is displayed",
-        "Page is accessible from the navigation bar"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Apply a warm, adventurous travel-themed visual design across the entire website: use earthy tones (amber, warm orange, deep green) with clean white backgrounds, bold serif-style headings, and card-based layouts. Ensure the design is fully responsive for mobile and desktop viewports.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "tours and travels website"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Color palette uses warm earthy tones (amber, orange, deep green) consistently",
-        "Typography uses bold, readable headings and clean body text",
-        "Layout is responsive and renders well on both mobile and desktop",
-        "Visual theme is consistent across all pages"
+        "Each vehicle card on the Vehicles page shows a unique photorealistic 360-degree-style image of that specific vehicle",
+        "Images are served from frontend/public/assets/generated",
+        "All six vehicles (Innova Crysta, Fortuner, Ertiga, Tempo Traveller, Force Traveller, Luxury Coach) have distinct images",
+        "Card content (name, type, capacity, features, badge) remains unchanged",
+        "Images are responsive and maintain aspect ratio within their cards"
       ]
     }
   ],
   "constraints": [
-    "Contact page must display phone number 9663202989 and email lakkiholidays@gmail.com exactly as provided",
-    "Company name must appear as 'LUCKY HOLIDAYS' throughout the site",
-    "Clicking the logo must navigate to the Home page"
+    "Do not modify any files under frontend/src/hooks/",
+    "Do not modify frontend/src/main.tsx or frontend/src/components/ui",
+    "Do not alter any other pages or components beyond Footer.tsx and Vehicles.tsx"
   ],
   "nonGoals": [
-    "Payment/booking integration",
-    "User authentication or login",
-    "Real-time chat or live support",
-    "External map or GPS/location features",
-    "Admin dashboard for content management"
+    "Changing the header design or cycling words animation",
+    "Modifying the Home page destination cards or hero section",
+    "Updating backend data models or rating logic",
+    "Adding real-time 360-degree spin interactivity (static photorealistic images only)"
   ],
   "imageRequirements": {
     "required": [
-      "Travel-themed logo mark illustration with a road, mountain, and sun motif in warm amber and deep green tones, suitable for a tours company (lucky-holidays-logo.dim_200x200.png)",
-      "Wide scenic travel hero banner with a winding mountain road and lush landscape in warm golden-hour lighting (hero-banner.dim_1400x500.png)",
-      "Illustrated vehicle card placeholder showing a comfortable travel van/minibus in warm tones (vehicle-placeholder.dim_400x280.png)"
+      "Photorealistic 360-degree exterior view of a Toyota Innova Crysta MPV in white, studio lighting on a neutral background (innova-crysta-360.dim_800x500.png)",
+      "Photorealistic 360-degree exterior view of a Toyota Fortuner SUV in silver, studio lighting on a neutral background (fortuner-360.dim_800x500.png)",
+      "Photorealistic 360-degree exterior view of a Maruti Suzuki Ertiga MPV in grey, studio lighting on a neutral background (ertiga-360.dim_800x500.png)",
+      "Photorealistic 360-degree exterior view of a Tempo Traveller 12-seater van in white, studio lighting on a neutral background (tempo-traveller-360.dim_800x500.png)",
+      "Photorealistic 360-degree exterior view of a Force Traveller mini-bus in white, studio lighting on a neutral background (force-traveller-360.dim_800x500.png)",
+      "Photorealistic 360-degree exterior view of a Luxury Coach tour bus in white and gold livery, studio lighting on a neutral background (luxury-coach-360.dim_800x500.png)"
     ],
     "edits": []
   }

@@ -120,3 +120,20 @@
     font-family: 'Inter', sans-serif;
   }
 }
+
+/* Animated words transitions */
+.animated-word {
+  display: inline-block;
+  min-width: 6rem;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.word-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.word-hidden {
+  opacity: 0;
+  transform: translateY(-6px);
+}

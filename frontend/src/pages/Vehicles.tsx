@@ -9,6 +9,7 @@ interface Vehicle {
   description: string;
   features: string[];
   badge?: string;
+  image: string;
 }
 
 const vehicles: Vehicle[] = [
@@ -19,6 +20,7 @@ const vehicles: Vehicle[] = [
     description: 'The most popular choice for family trips and small group tours. Spacious, comfortable, and fuel-efficient with excellent road performance.',
     features: ['AC', 'Music System', 'GPS', 'Luggage Space'],
     badge: 'Most Popular',
+    image: '/assets/generated/innova-crysta-360.dim_800x500.png',
   },
   {
     name: 'Force Traveller',
@@ -26,6 +28,7 @@ const vehicles: Vehicle[] = [
     capacity: 17,
     description: 'Perfect for medium-sized groups. Offers ample seating with comfortable cushioned seats and large windows for scenic views.',
     features: ['AC', 'Push-back Seats', 'Music System', 'Luggage Rack'],
+    image: '/assets/generated/force-traveller-360.dim_800x500.png',
   },
   {
     name: 'Tempo Traveller',
@@ -34,6 +37,7 @@ const vehicles: Vehicle[] = [
     description: 'Ideal for group outings and corporate trips. Comfortable seating with good legroom and reliable performance on all terrains.',
     features: ['AC', 'Reclining Seats', 'Music System', 'First Aid'],
     badge: 'Best Value',
+    image: '/assets/generated/tempo-traveller-360.dim_800x500.png',
   },
   {
     name: 'Luxury Coach',
@@ -42,6 +46,7 @@ const vehicles: Vehicle[] = [
     description: 'For large group tours and pilgrimages. Equipped with premium amenities to ensure a comfortable long-distance journey.',
     features: ['AC', 'Sleeper Seats', 'TV', 'Charging Points'],
     badge: 'Premium',
+    image: '/assets/generated/luxury-coach-360.dim_800x500.png',
   },
   {
     name: 'Toyota Fortuner',
@@ -50,6 +55,7 @@ const vehicles: Vehicle[] = [
     description: 'A premium SUV for those who want to travel in style. Powerful engine, luxurious interiors, and superior off-road capability.',
     features: ['AC', 'Leather Seats', 'GPS', 'Sunroof'],
     badge: 'Luxury',
+    image: '/assets/generated/fortuner-360.dim_800x500.png',
   },
   {
     name: 'Maruti Ertiga',
@@ -57,6 +63,7 @@ const vehicles: Vehicle[] = [
     capacity: 7,
     description: 'A budget-friendly option for small families. Comfortable, economical, and perfect for short to medium distance trips.',
     features: ['AC', 'Music System', 'Luggage Space', 'Comfortable Seats'],
+    image: '/assets/generated/ertiga-360.dim_800x500.png',
   },
 ];
 
@@ -94,8 +101,8 @@ export default function Vehicles() {
                 {/* Vehicle Image */}
                 <div className="relative">
                   <img
-                    src="/assets/generated/vehicle-placeholder.dim_400x280.png"
-                    alt={vehicle.name}
+                    src={vehicle.image}
+                    alt={`${vehicle.name} 360° view`}
                     className="w-full h-48 object-cover"
                   />
                   {vehicle.badge && (

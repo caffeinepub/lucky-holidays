@@ -1,14 +1,16 @@
 {
-  "frontend/src/index.css": "Global styles with warm travel-themed OKLCH color palette (amber primary, deep green secondary), Google Fonts import for Playfair Display and Inter, and base typography rules.",
+  "frontend/src/index.css": "Global styles with warm travel-themed OKLCH color palette, Google Fonts import, base typography rules, and new CSS transition classes for the animated words fade-in/fade-out effect in the header.",
   "frontend/tailwind.config.js": "Extended Tailwind config with custom font families (Playfair Display, Inter), card shadow utilities, and fade-in animation keyframes.",
-  "frontend/src/App.tsx": "Main app component setting up TanStack Router with all five routes (Home, About, Vehicles, Contact, Ratings) wrapped in a Layout component.",
-  "frontend/src/components/Header.tsx": "Sticky header with LUCKY HOLIDAYS logo (clickable, navigates to Home), company name, and responsive navigation bar with active link highlighting.",
-  "frontend/src/components/Footer.tsx": "Site footer with brand info, quick navigation links, contact details (phone/email), copyright year, and caffeine.ai attribution.",
+  "frontend/src/App.tsx": "Main app component with TanStack Router setup for five routes (Home, About, Vehicles, Contact, Ratings) plus a new /destination/$name route for destination detail pages; the /places route and Places import have been removed.",
+  "frontend/src/components/Header.tsx": "Sticky header with deep green (#1a4731) background, enlarged LUCKY HOLIDAYS brand name (text-3xl md:text-4xl), inline SVG highway road junction logo, animated cycling words tagline, and responsive navigation with mobile menu.",
+  "frontend/src/components/Footer.tsx": "Site footer with deep green background, brand info with \"❤️ Swaroop Team\" attribution, quick navigation links, contact details, copyright year, and updated caffeine.ai attribution reading \"Built with ❤️ using caffeine.ai Swaroop Team\".",
   "frontend/src/components/Layout.tsx": "Layout wrapper that composes Header and Footer around page content with a flex column structure.",
   "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching ratings/reviews from the backend and mutations for submitting new ratings and reviews.",
-  "frontend/src/pages/Home.tsx": "Home page with hero banner, stats bar, services grid, popular destinations, and a call-to-action section linking to Contact.",
+  "frontend/src/pages/Home.tsx": "Home page with hero banner, stats bar, services grid, a 12-destination Popular Destinations card grid with images (each card shows destination photo, tag badge, name, description, and Explore link), a travel benefits section, CTA section, and \"Made with ❤️ by Swaroop Team\" credit at the bottom.",
   "frontend/src/pages/About.tsx": "About page with company story, mission statement, core values cards, and an interactive milestone timeline.",
-  "frontend/src/pages/Vehicles.tsx": "Vehicles page displaying a responsive grid of 6 vehicle cards with images, type badges, capacity, features, and a contact CTA.",
+  "frontend/src/pages/Vehicles.tsx": "Vehicles page displaying a responsive grid of 6 vehicle cards, each with a unique 360-degree photorealistic image (innova-crysta, fortuner, ertiga, tempo-traveller, force-traveller, luxury-coach), type badges, capacity, features, and a contact CTA.",
   "frontend/src/pages/Contact.tsx": "Contact page with prominent phone (9663202989) and email (lakkiholidays@gmail.com) cards, quick-dial buttons, and a validated inquiry form.",
-  "frontend/src/pages/Ratings.tsx": "Ratings page with overall average display, star breakdown chart, customer review cards fetched from backend, and a submit form for new ratings/reviews."
+  "frontend/src/pages/Ratings.tsx": "Ratings page with overall average display, star breakdown chart, customer review cards fetched from backend, and a submit form for new ratings/reviews.",
+  "frontend/src/pages/Places.tsx": "New Tourist Places page displaying a responsive 3-column card grid of 6 popular tourist destinations, each with a generated image, tag badge, place name, location, and description, plus a \"Made with ❤️ by SWAROOP TEAM\" credit section at the bottom.",
+  "frontend/src/pages/Destination.tsx": "New destination detail page that reads the destination slug from route params, displays a hero section with image and description, and renders categorized tourist spots (Viewpoints, Temples, Ghat Roads, Beaches, Rivers, Hill Stations, Hotels, Cafés) for all 12 destinations with back navigation and a booking CTA."
 }

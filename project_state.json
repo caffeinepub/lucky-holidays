@@ -1,14 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Tours and travels website for LUCKY HOLIDAYS. Multi-page site with Home, About, Vehicles, Contact Us, and Rating section. Contact page includes phone number 9663202989 and email lakkiholidays@gmail.com. Company logo is clickable and opens (likely homepage or external link).",
+  "projectStateVersion": 15,
+  "summary": "Tours and travels website for LUCKY HOLIDAYS. Multi-page site with Home, About, Vehicles, Contact Us, and Rating section. Contact page includes phone number 9663202989 and email lakkiholidays@gmail.com. Company logo is clickable and opens homepage. The separate Places page is removed; instead, popular destinations (Coorg, Ooty, Mysore, Goa, Kerala, Hampi and more) are integrated into the main site. Clicking a destination name opens a detailed view with tourist spots categorized as temples, ghat roads, beaches, rivers, hotels, hill stations, and cafes. Header features animated words/text. Logo redesigned to resemble a highway road junction outline (single/double road joining) style with 'LUCKY HOLIDAYS' text. 'Built with SWAROOP TEAM' sub-label removed from visible header; footer/branding credit changed from 'Built with caffeine.ai' to 'SWAROOP TEAM'.",
   "architectural_notes": [
     "Company name: LUCKY HOLIDAYS; logo should be a travel-themed logo and clickable (links to home page)",
-    "Contact details: phone 9663202989, email lakkiholidays@gmail.com"
+    "Contact details: phone 9663202989, email lakkiholidays@gmail.com",
+    "Destinations include: Coorg, Ooty, Mysore, Goa, Kerala, Hampi, and more; each destination has a detail page with categories: temples, ghat roads, beaches, rivers, hotels, hill stations, cafes",
+    "Logo style updated: highway road junction outline (single/double road merging), 'LUCKY HOLIDAYS' text only; 'Built with SWAROOP TEAM' removed from header; footer branding reads 'SWAROOP TEAM' instead of 'caffeine.ai'"
   ],
   "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Travel-themed logo mark illustration with a road, mountain, and sun motif in warm amber and deep green tones, suitable for a tours company (lucky-holidays-logo.dim_200x200.png)\n- Wide scenic travel hero banner with a winding mountain road and lush landscape in warm golden-hour lighting (hero-banner.dim_1400x500.png)\n- Illustrated vehicle card placeholder showing a comfortable travel van/minibus in warm tones (vehicle-placeholder.dim_400x280.png)",
+  "isFixRequest": true,
+  "imageRequirements": "## Required Images\n- Photorealistic 360-degree exterior view of a Toyota Innova Crysta MPV in white, studio lighting on a neutral background (innova-crysta-360.dim_800x500.png)\n- Photorealistic 360-degree exterior view of a Toyota Fortuner SUV in silver, studio lighting on a neutral background (fortuner-360.dim_800x500.png)\n- Photorealistic 360-degree exterior view of a Maruti Suzuki Ertiga MPV in grey, studio lighting on a neutral background (ertiga-360.dim_800x500.png)\n- Photorealistic 360-degree exterior view of a Tempo Traveller 12-seater van in white, studio lighting on a neutral background (tempo-traveller-360.dim_800x500.png)\n- Photorealistic 360-degree exterior view of a Force Traveller mini-bus in white, studio lighting on a neutral background (force-traveller-360.dim_800x500.png)\n- Photorealistic 360-degree exterior view of a Luxury Coach tour bus in white and gold livery, studio lighting on a neutral background (luxury-coach-360.dim_800x500.png)",
   "existing_features": [
     {
       "id": "feature-create-a-multi-page-tours-and-travels-website-for-lucky-holidays-with-a-consistent-header-containing-a-clickable-travel-logo-and-company-name-lucky-holidays-clicking-the-logo-navigates-to-the-home-page-include-a-navigation-bar-with-links-to-home-about-vehicles-contact-us-and-ratings",
@@ -65,6 +67,150 @@
         "REQ-7"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-places-navigation-icon-link-in-the-header-navigation-bar-alongside-the-existing-links-home-about-vehicles-contact-us-ratings-when-clicked-it-navigates-to-a-new-dedicated-tourist-places-page",
+      "title": "Add a 'Places' navigation icon/link in the header navigation bar alongside the existing links (Home, About, Vehicles, Contact Us, Ratings). When clicked, it navigates to a new dedicated Tourist Places page.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-tourist-places-page-places-route-that-displays-a-gallery-of-popular-tourist-viewpoints-and-destinations-each-entry-must-show-a-destination-image-place-name-a-short-description-and-location-details-the-layout-should-be-a-responsive-card-grid-the-last-line-footer-area-of-the-page-must-display-the-text-made-with-by-swaroop-team",
+      "title": "Create a new Tourist Places page (/places route) that displays a gallery of popular tourist viewpoints and destinations. Each entry must show a destination image, place name, a short description, and location details. The layout should be a responsive card grid. The last line / footer area of the page must display the text 'Made with ❤️ by SWAROOP TEAM'.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-tourist-destination-images-as-static-assets-for-use-on-the-tourist-places-page-use-the-images-from-frontend-public-assets-generated-and-render-them-inside-the-place-cards",
+      "title": "Add generated tourist destination images as static assets for use on the Tourist Places page. Use the images from frontend/public/assets/generated and render them inside the place cards.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-dedicated-places-route-and-the-places-tsx-page-entirely-remove-the-places-link-from-the-header-navigation-bar-so-that-the-nav-only-contains-home-about-vehicles-contact-us-and-ratings",
+      "title": "Remove the dedicated /places route and the Places.tsx page entirely. Remove the 'Places' link from the header navigation bar so that the nav only contains: Home, About, Vehicles, Contact Us, and Ratings.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-home-page-replace-the-current-6-destination-grid-with-an-expanded-popular-destinations-section-containing-at-least-12-destinations-coorg-ooty-mysore-goa-kerala-hampi-munnar-kodaikanal-pondicherry-wayanad-chikmagalur-and-rishikesh-each-destination-card-must-display-a-destination-image-from-frontend-public-assets-generated-the-destination-name-as-a-clickable-heading-a-short-description-and-the-state-region-label-the-card-grid-must-be-responsive-2-columns-on-mobile-3-4-on-desktop",
+      "title": "On the Home page, replace the current 6-destination grid with an expanded 'Popular Destinations' section containing at least 12 destinations: Coorg, Ooty, Mysore, Goa, Kerala, Hampi, Munnar, Kodaikanal, Pondicherry, Wayanad, Chikmagalur, and Rishikesh. Each destination card must display a destination image (from frontend/public/assets/generated), the destination name as a clickable heading, a short description, and the state/region label. The card grid must be responsive (2 columns on mobile, 3–4 on desktop).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-destination-detail-page-at-route-destination-name-when-a-user-clicks-any-destination-name-or-card-on-the-home-page-they-are-navigated-to-this-detail-page-for-that-destination-the-detail-page-must-display-the-destination-name-a-hero-image-a-brief-overview-and-a-categorized-grid-of-tourist-spots-organized-into-the-following-categories-temples-ghat-roads-beaches-rivers-hotels-hill-stations-and-cafes-each-category-section-shows-a-heading-icon-and-a-list-or-grid-of-notable-spots-within-that-destination-for-that-category-categories-with-no-relevant-spots-for-a-given-destination-may-be-hidden",
+      "title": "Create a new destination detail page at route /destination/:name. When a user clicks any destination name or card on the Home page, they are navigated to this detail page for that destination. The detail page must display the destination name, a hero image, a brief overview, and a categorized grid of tourist spots organized into the following categories: Temples, Ghat Roads, Beaches, Rivers, Hotels, Hill Stations, and Cafes. Each category section shows a heading/icon and a list or grid of notable spots within that destination for that category. Categories with no relevant spots for a given destination may be hidden.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-tanstack-router-route-definition-for-destination-name-in-app-tsx-importing-and-rendering-the-new-destination-detail-page-component-update-the-home-page-destination-cards-to-use-router-link-components-pointing-to-destination-name",
+      "title": "Add the TanStack Router route definition for /destination/:name in App.tsx, importing and rendering the new destination detail page component. Update the Home page destination cards to use router Link components pointing to /destination/:name.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-destination-hero-card-images-for-the-new-destinations-not-already-covered-munnar-kodaikanal-pondicherry-wayanad-chikmagalur-and-rishikesh-images-should-be-landscape-oriented-travel-photography-style-showing-the-scenic-highlights-of-each-destination-store-them-in-frontend-public-assets-generated-and-reference-them-in-the-destination-data",
+      "title": "Generate destination hero/card images for the new destinations not already covered: Munnar, Kodaikanal, Pondicherry, Wayanad, Chikmagalur, and Rishikesh. Images should be landscape-oriented travel photography style showing the scenic highlights of each destination. Store them in frontend/public/assets/generated and reference them in the destination data.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-header-logo-in-frontend-src-components-header-tsx-to-visually-resemble-a-national-highway-sign-style-use-a-bold-shield-or-road-sign-shaped-container-with-a-green-white-yellow-color-palette-display-lucky-holidays-as-the-primary-text-in-the-logo-badge-and-include-a-smaller-built-with-swaroop-team-sub-label-beneath-or-within-the-logo-mark-the-logo-must-remain-clickable-and-navigate-to-the-home-page",
+      "title": "Redesign the header logo in `frontend/src/components/Header.tsx` to visually resemble a national highway sign style: use a bold shield or road-sign shaped container with a green/white/yellow color palette, display 'LUCKY HOLIDAYS' as the primary text in the logo badge, and include a smaller 'Built with SWAROOP TEAM' sub-label beneath or within the logo mark. The logo must remain clickable and navigate to the Home page.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-animated-rotating-cycling-words-effect-in-the-header-in-frontend-src-components-header-tsx-a-short-phrase-or-tagline-area-e-g-below-or-beside-the-logo-brand-name-should-cycle-through-travel-themed-words-such-as-explore-adventure-discover-journey-wander-experience-with-a-smooth-fade-in-fade-out-or-slide-transition-the-animation-must-loop-indefinitely-and-not-interfere-with-navigation-usability",
+      "title": "Add an animated rotating/cycling words effect in the header in `frontend/src/components/Header.tsx`. A short phrase or tagline area (e.g., below or beside the logo/brand name) should cycle through travel-themed words such as 'Explore', 'Adventure', 'Discover', 'Journey', 'Wander', 'Experience' with a smooth fade-in/fade-out or slide transition. The animation must loop indefinitely and not interfere with navigation usability.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-components-header-tsx-remove-the-built-with-swaroop-team-sub-label-from-the-header-logo-area-entirely-the-logo-click-to-home-behavior-and-the-animated-cycling-words-tagline-must-remain-unaffected",
+      "title": "In `frontend/src/components/Header.tsx`, remove the 'Built with SWAROOP TEAM' sub-label from the header logo area entirely. The logo click-to-home behavior and the animated cycling words tagline must remain unaffected.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-svg-logo-in-frontend-src-components-header-tsx-to-depict-a-highway-road-junction-outline-specifically-a-single-road-merging-into-a-double-road-or-two-roads-joining-rendered-as-a-clean-line-art-outline-style-icon-replace-the-current-national-highway-shield-shape-with-this-road-junction-svg-graphic-lucky-holidays-text-should-remain-as-the-brand-label-beside-or-below-the-icon-keep-the-existing-green-amber-color-palette-consistent-with-the-site-theme",
+      "title": "Redesign the SVG logo in `frontend/src/components/Header.tsx` to depict a highway road junction outline — specifically a single road merging into a double road (or two roads joining), rendered as a clean line-art / outline style icon. Replace the current national highway shield shape with this road-junction SVG graphic. 'LUCKY HOLIDAYS' text should remain as the brand label beside or below the icon. Keep the existing green/amber color palette consistent with the site theme.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-components-footer-tsx-change-the-attribution-credit-text-that-currently-reads-built-with-caffeine-ai-or-any-caffeine-ai-reference-to-read-swaroop-team-instead",
+      "title": "In `frontend/src/components/Footer.tsx`, change the attribution/credit text that currently reads 'Built with caffeine.ai' (or any caffeine.ai reference) to read 'SWAROOP TEAM' instead.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-pages-home-tsx-or-wherever-the-popular-destinations-explore-places-section-renders-destination-items-update-each-destination-entry-to-display-as-a-card-with-its-destination-image-from-frontend-public-assets-generated-alongside-the-destination-name-and-description-currently-the-items-appear-as-a-plain-list-without-images-each-item-must-render-as-a-card-showing-the-destination-image-name-and-description-consistent-with-the-card-grid-layout-used-elsewhere-on-the-page",
+      "title": "In `frontend/src/pages/Home.tsx` (or wherever the 'Popular Destinations' / 'Explore Places' section renders destination items), update each destination entry to display as a card with its destination image (from `frontend/public/assets/generated`) alongside the destination name and description. Currently the items appear as a plain list without images; each item must render as a card showing the destination image, name, and description, consistent with the card-grid layout used elsewhere on the page.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-components-header-tsx-increase-the-font-size-of-the-lucky-holidays-brand-name-text-so-it-appears-noticeably-larger-e-g-from-the-current-size-to-at-least-text-2xl-or-text-3xl-on-desktop-also-change-the-header-s-background-color-to-a-rich-deep-green-e-g-1a4731-or-a-matching-deep-forest-green-from-the-site-s-existing-color-palette-so-it-stands-out-distinctly-from-the-current-background",
+      "title": "In `frontend/src/components/Header.tsx`, increase the font size of the 'LUCKY HOLIDAYS' brand name text so it appears noticeably larger (e.g., from the current size to at least `text-2xl` or `text-3xl` on desktop). Also change the header's background color to a rich, deep green (e.g., `#1a4731` or a matching deep forest green from the site's existing color palette) so it stands out distinctly from the current background.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-pages-home-tsx-locate-the-attribution-credit-line-at-the-bottom-of-the-page-that-currently-reads-swaroop-team-all-caps-possibly-with-a-generic-heart-or-no-heart-and-change-it-to-display-swaroop-team-title-case-preceded-by-a-red-heart-emoji-so-the-final-text-reads-swaroop-team",
+      "title": "In `frontend/src/pages/Home.tsx`, locate the attribution/credit line at the bottom of the page that currently reads 'SWAROOP TEAM' (all caps, possibly with a generic heart or no heart) and change it to display 'Swaroop Team' (title case) preceded by a red heart emoji ❤️, so the final text reads '❤️ Swaroop Team'.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-components-footer-tsx-update-the-attribution-credit-line-to-read-built-with-using-caffeine-ai-swaroop-team-the-existing-deep-green-background-brand-info-navigation-links-and-contact-details-must-remain-unchanged",
+      "title": "In `frontend/src/components/Footer.tsx`, update the attribution/credit line to read 'Built with using caffeine.ai Swaroop Team'. The existing deep-green background, brand info, navigation links, and contact details must remain unchanged.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-pages-vehicles-tsx-replace-the-current-placeholder-images-on-each-vehicle-card-with-generated-360-degree-style-vehicle-images-each-of-the-six-vehicles-innova-crysta-fortuner-ertiga-tempo-traveller-force-traveller-luxury-coach-must-display-its-own-photorealistic-image-stored-in-frontend-public-assets-generated-the-card-layout-vehicle-name-capacity-features-and-badge-labels-must-remain-intact",
+      "title": "In `frontend/src/pages/Vehicles.tsx`, replace the current placeholder images on each vehicle card with generated 360-degree-style vehicle images. Each of the six vehicles (Innova Crysta, Fortuner, Ertiga, Tempo Traveller, Force Traveller, Luxury Coach) must display its own photorealistic image stored in `frontend/public/assets/generated`. The card layout, vehicle name, capacity, features, and badge labels must remain intact.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -101,6 +247,78 @@
     {
       "id": "AR-6",
       "summary": "Clickable LUCKY HOLIDAYS travel logo in header/nav",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Remove the separate Places page and integrate popular destinations (Coorg, Ooty, Mysore, Goa, Kerala, Hampi, and more) into the site with expanded destination listings",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Clicking a destination name opens a detail view showing tourist spots categorized as temples, ghat roads, beaches, rivers, hotels, hill stations, and cafes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add animated words/text in the header",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Redesign logo to look like a national highway sign with 'LUCKY HOLIDAYS' name and 'Built with SWAROOP TEAM' branding",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Remove 'Built with SWAROOP TEAM' sub-label from the header logo area",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Redesign logo to look like a highway road junction outline (single/double road joining) instead of shield/sign style",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Change 'Built with caffeine.ai' branding text to 'SWAROOP TEAM'",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Popular destinations detail/explore page should show places as cards with pictures, not just a list",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Make 'LUCKY HOLIDAYS' name bigger in the header and change the header background color",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Change 'SWAROOP TEAM' text at the bottom of the home page to 'Swaroop Team' with a red heart (❤️)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Change footer/branding text to 'Built with using caffeine.ai Swaroop Team'",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Add correct 360-degree vehicle pictures on the Vehicles page",
       "reqIds": [],
       "status": "pending"
     }
