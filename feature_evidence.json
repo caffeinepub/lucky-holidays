@@ -1,0 +1,134 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-multi-page-tours-and-travels-website-for-lucky-holidays-with-a-consistent-header-containing-a-clickable-travel-logo-and-company-name-lucky-holidays-clicking-the-logo-navigates-to-the-home-page-include-a-navigation-bar-with-links-to-home-about-vehicles-contact-us-and-ratings",
+      "featureTitle": "Create a multi-page tours and travels website for LUCKY HOLIDAYS with a consistent header containing a clickable travel logo and company name 'LUCKY HOLIDAYS'. Clicking the logo navigates to the Home page. Include a navigation bar with links to: Home, About, Vehicles, Contact Us, and Ratings.",
+      "files": [
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/Layout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-home-page-with-a-hero-section-showcasing-travel-destinations-a-brief-introduction-to-lucky-holidays-highlights-of-key-services-tour-packages-vehicle-rentals-guided-trips-and-a-call-to-action-button-directing-users-to-the-contact-page",
+      "featureTitle": "Create a Home page with a hero section showcasing travel destinations, a brief introduction to LUCKY HOLIDAYS, highlights of key services (tour packages, vehicle rentals, guided trips), and a call-to-action button directing users to the Contact page.",
+      "files": [
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-about-page-describing-the-lucky-holidays-company-its-mission-values-and-story-in-the-tours-and-travels-industry",
+      "featureTitle": "Create an About page describing the LUCKY HOLIDAYS company, its mission, values, and story in the tours and travels industry.",
+      "files": [
+        "frontend/src/pages/About.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-vehicles-page-that-displays-available-vehicles-for-travel-packages-in-a-card-based-grid-layout-each-card-showing-a-vehicle-image-placeholder-vehicle-name-type-capacity-and-a-brief-description",
+      "featureTitle": "Create a Vehicles page that displays available vehicles for travel packages in a card-based grid layout, each card showing a vehicle image placeholder, vehicle name, type, capacity, and a brief description.",
+      "files": [
+        "frontend/src/pages/Vehicles.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-contact-us-page-that-prominently-displays-the-company-phone-number-9663202989-and-email-address-lakkiholidays-gmail-com-along-with-a-contact-form-name-email-message-fields-for-inquiry-submissions",
+      "featureTitle": "Create a Contact Us page that prominently displays the company phone number 9663202989 and email address lakkiholidays@gmail.com, along with a contact form (name, email, message fields) for inquiry submissions.",
+      "files": [
+        "frontend/src/pages/Contact.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-ratings-page-or-section-where-customer-reviews-and-star-ratings-for-lucky-holidays-are-displayed-store-ratings-and-reviews-in-the-backend-and-allow-users-to-submit-a-rating-1-5-stars-and-a-short-review-text",
+      "featureTitle": "Create a Ratings page (or section) where customer reviews and star ratings for LUCKY HOLIDAYS are displayed. Store ratings and reviews in the backend and allow users to submit a rating (1–5 stars) and a short review text.",
+      "files": [
+        "frontend/src/pages/Ratings.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-warm-adventurous-travel-themed-visual-design-across-the-entire-website-use-earthy-tones-amber-warm-orange-deep-green-with-clean-white-backgrounds-bold-serif-style-headings-and-card-based-layouts-ensure-the-design-is-fully-responsive-for-mobile-and-desktop-viewports",
+      "featureTitle": "Apply a warm, adventurous travel-themed visual design across the entire website: use earthy tones (amber, warm orange, deep green) with clean white backgrounds, bold serif-style headings, and card-based layouts. Ensure the design is fully responsive for mobile and desktop viewports.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

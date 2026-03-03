@@ -1,0 +1,14 @@
+{
+  "frontend/src/index.css": "Global styles with warm travel-themed OKLCH color palette (amber primary, deep green secondary), Google Fonts import for Playfair Display and Inter, and base typography rules.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with custom font families (Playfair Display, Inter), card shadow utilities, and fade-in animation keyframes.",
+  "frontend/src/App.tsx": "Main app component setting up TanStack Router with all five routes (Home, About, Vehicles, Contact, Ratings) wrapped in a Layout component.",
+  "frontend/src/components/Header.tsx": "Sticky header with LUCKY HOLIDAYS logo (clickable, navigates to Home), company name, and responsive navigation bar with active link highlighting.",
+  "frontend/src/components/Footer.tsx": "Site footer with brand info, quick navigation links, contact details (phone/email), copyright year, and caffeine.ai attribution.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper that composes Header and Footer around page content with a flex column structure.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching ratings/reviews from the backend and mutations for submitting new ratings and reviews.",
+  "frontend/src/pages/Home.tsx": "Home page with hero banner, stats bar, services grid, popular destinations, and a call-to-action section linking to Contact.",
+  "frontend/src/pages/About.tsx": "About page with company story, mission statement, core values cards, and an interactive milestone timeline.",
+  "frontend/src/pages/Vehicles.tsx": "Vehicles page displaying a responsive grid of 6 vehicle cards with images, type badges, capacity, features, and a contact CTA.",
+  "frontend/src/pages/Contact.tsx": "Contact page with prominent phone (9663202989) and email (lakkiholidays@gmail.com) cards, quick-dial buttons, and a validated inquiry form.",
+  "frontend/src/pages/Ratings.tsx": "Ratings page with overall average display, star breakdown chart, customer review cards fetched from backend, and a submit form for new ratings/reviews."
+}

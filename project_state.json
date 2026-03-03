@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Tours and travels website for LUCKY HOLIDAYS. Multi-page site with Home, About, Vehicles, Contact Us, and Rating section. Contact page includes phone number 9663202989 and email lakkiholidays@gmail.com. Company logo is clickable and opens (likely homepage or external link).",
+  "architectural_notes": [
+    "Company name: LUCKY HOLIDAYS; logo should be a travel-themed logo and clickable (links to home page)",
+    "Contact details: phone 9663202989, email lakkiholidays@gmail.com"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Travel-themed logo mark illustration with a road, mountain, and sun motif in warm amber and deep green tones, suitable for a tours company (lucky-holidays-logo.dim_200x200.png)\n- Wide scenic travel hero banner with a winding mountain road and lush landscape in warm golden-hour lighting (hero-banner.dim_1400x500.png)\n- Illustrated vehicle card placeholder showing a comfortable travel van/minibus in warm tones (vehicle-placeholder.dim_400x280.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-multi-page-tours-and-travels-website-for-lucky-holidays-with-a-consistent-header-containing-a-clickable-travel-logo-and-company-name-lucky-holidays-clicking-the-logo-navigates-to-the-home-page-include-a-navigation-bar-with-links-to-home-about-vehicles-contact-us-and-ratings",
+      "title": "Create a multi-page tours and travels website for LUCKY HOLIDAYS with a consistent header containing a clickable travel logo and company name 'LUCKY HOLIDAYS'. Clicking the logo navigates to the Home page. Include a navigation bar with links to: Home, About, Vehicles, Contact Us, and Ratings.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-home-page-with-a-hero-section-showcasing-travel-destinations-a-brief-introduction-to-lucky-holidays-highlights-of-key-services-tour-packages-vehicle-rentals-guided-trips-and-a-call-to-action-button-directing-users-to-the-contact-page",
+      "title": "Create a Home page with a hero section showcasing travel destinations, a brief introduction to LUCKY HOLIDAYS, highlights of key services (tour packages, vehicle rentals, guided trips), and a call-to-action button directing users to the Contact page.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-about-page-describing-the-lucky-holidays-company-its-mission-values-and-story-in-the-tours-and-travels-industry",
+      "title": "Create an About page describing the LUCKY HOLIDAYS company, its mission, values, and story in the tours and travels industry.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-vehicles-page-that-displays-available-vehicles-for-travel-packages-in-a-card-based-grid-layout-each-card-showing-a-vehicle-image-placeholder-vehicle-name-type-capacity-and-a-brief-description",
+      "title": "Create a Vehicles page that displays available vehicles for travel packages in a card-based grid layout, each card showing a vehicle image placeholder, vehicle name, type, capacity, and a brief description.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-us-page-that-prominently-displays-the-company-phone-number-9663202989-and-email-address-lakkiholidays-gmail-com-along-with-a-contact-form-name-email-message-fields-for-inquiry-submissions",
+      "title": "Create a Contact Us page that prominently displays the company phone number 9663202989 and email address lakkiholidays@gmail.com, along with a contact form (name, email, message fields) for inquiry submissions.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-ratings-page-or-section-where-customer-reviews-and-star-ratings-for-lucky-holidays-are-displayed-store-ratings-and-reviews-in-the-backend-and-allow-users-to-submit-a-rating-1-5-stars-and-a-short-review-text",
+      "title": "Create a Ratings page (or section) where customer reviews and star ratings for LUCKY HOLIDAYS are displayed. Store ratings and reviews in the backend and allow users to submit a rating (1–5 stars) and a short review text.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-warm-adventurous-travel-themed-visual-design-across-the-entire-website-use-earthy-tones-amber-warm-orange-deep-green-with-clean-white-backgrounds-bold-serif-style-headings-and-card-based-layouts-ensure-the-design-is-fully-responsive-for-mobile-and-desktop-viewports",
+      "title": "Apply a warm, adventurous travel-themed visual design across the entire website: use earthy tones (amber, warm orange, deep green) with clean white backgrounds, bold serif-style headings, and card-based layouts. Ensure the design is fully responsive for mobile and desktop viewports.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Home page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "About page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Vehicles page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Contact Us page with phone 9663202989 and email lakkiholidays@gmail.com",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Rating section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Clickable LUCKY HOLIDAYS travel logo in header/nav",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Lucky Holidays",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

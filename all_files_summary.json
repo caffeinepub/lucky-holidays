@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Motoko actor defining Review and Rating types with stable maps, and four public methods to submit and query reviews/ratings with validation and sorting.",
+  "feature_evidence.json": "Feature evidence report mapping each product requirement (header, Home, About, Vehicles, Contact, Ratings pages) to their implementing source files and test IDs.",
+  "frontend-file-summaries.txt": "JSON document containing one-line descriptions of every frontend source file, serving as a quick reference for the project's frontend structure.",
+  "frontend/index.css": "Tailwind base stylesheet defining OKLCH-based CSS custom properties for light and dark color themes including primary, card, sidebar, and chart tokens.",
+  "frontend/index.html": "Minimal HTML entry point titled 'Lucky Holidays' that mounts the React app into a root div and loads the main TypeScript module.",
+  "frontend/src/App.tsx": "Root React component that configures TanStack Router with five routes (Home, About, Vehicles, Contact, Ratings) all wrapped in the shared Layout component.",
+  "frontend/src/components/Footer.tsx": "Site footer rendering brand logo, quick navigation links, contact details (phone/email/location), copyright year, and a caffeine.ai attribution badge.",
+  "frontend/src/components/Header.tsx": "Sticky header with the LUCKY HOLIDAYS logo (links to Home), desktop navigation bar, and a collapsible mobile menu with active-link highlighting.",
+  "frontend/src/components/Layout.tsx": "Simple layout wrapper that places the Header above and Footer below the main page content in a full-height flex column.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and caches an authenticated or anonymous ICP backend actor via React Query, invalidating dependent queries whenever the identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and hook for Internet Identity authentication on the ICP platform, managing login state, identity persistence, and AuthClient lifecycle.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for fetching all ratings and reviews, and mutations for submitting a rating or review via the backend actor.",
+  "frontend/src/index.css": "Global stylesheet that imports Google Fonts, sets up Tailwind CSS, and defines CSS custom properties for the design system's color tokens in both light and dark modes.",
+  "frontend/src/main.tsx": "Application entry point that mounts the React app with QueryClientProvider and InternetIdentityProvider wrapping the root App component.",
+  "frontend/src/pages/About.tsx": "About page for LUCKY HOLIDAYS displaying the company story, core values, and a timeline of milestones from 2010 to 2025.",
+  "frontend/src/pages/Contact.tsx": "Contact page with a validated contact form and contact info cards (phone, email, hours) for LUCKY HOLIDAYS.",
+  "frontend/src/pages/Home.tsx": "Home page featuring a hero banner, stats bar, service highlights, and a grid of popular travel destinations for LUCKY HOLIDAYS.",
+  "frontend/src/pages/Ratings.tsx": "Ratings page that displays average star ratings and customer reviews fetched from the backend, and provides a form for users to submit a star rating and written review.",
+  "frontend/src/pages/Vehicles.tsx": "Vehicles page that renders a static grid of vehicle cards (Innova, Fortuner, coaches, etc.) each showing an image, name, type, capacity, features, and an optional badge.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration defining custom fonts (Playfair Display, Inter), OKLCH-based color tokens, border radius, box shadows, and animations (fade-in, accordion) with typography, container-queries, and animate plugins.",
+  "project_state.json": "Project state metadata describing the LUCKY HOLIDAYS multi-page travel website, its existing features, contact details, image requirements, and architectural notes."
+}
