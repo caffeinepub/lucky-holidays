@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { MessageCircle, Send, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -22,6 +22,389 @@ const navLinks = [
   { label: "Contact", path: "/contact" },
   { label: "Ratings", path: "/ratings" },
 ];
+
+// ── Chatbot logic ──────────────────────────────────────────────────────────────
+
+interface ChatMessage {
+  id: number;
+  role: "bot" | "user";
+  text: string;
+}
+
+let msgIdCounter = 0;
+function nextMsgId() {
+  return ++msgIdCounter;
+}
+
+function getBotReply(input: string): string {
+  const msg = input.toLowerCase().trim();
+
+  if (
+    msg.match(
+      /\b(hi|hello|hey|namaste|good morning|good afternoon|good evening)\b/,
+    )
+  ) {
+    return "Namaste! 🙏 Welcome to LAKKI HOLIDAYS! I'm your travel assistant. Ask me about destinations, vehicles, pricing, or bookings. How can I help you today?";
+  }
+
+  if (msg.match(/\bcoorg\b/)) {
+    return "🌿 Coorg (Kodagu) is the 'Scotland of India'! Top spots: Abbey Falls, Raja's Seat, Dubare Elephant Camp, Talacauvery, Namdroling Monastery, and Iruppu Falls. Best season: Oct–Mar. We offer full Coorg tour packages — call 9663202989 to book!";
+  }
+
+  if (msg.match(/\booty\b/)) {
+    return "🏔️ Ooty (Udhagamandalam) is a stunning Nilgiri hill station! Must-see: Botanical Gardens, Ooty Lake, Doddabetta Peak, Pine Forest, Avalanche Lake, and the iconic Nilgiri Mountain Railway. Best season: Apr–Jun & Sep–Nov. Ask us for a package!";
+  }
+
+  if (msg.match(/\bmysore\b|mysuru/)) {
+    return "👑 Mysore is a royal heritage city! Don't miss: Mysore Palace (illuminated on Sundays), Chamundeshwari Temple, Brindavan Gardens, St. Philomena's Church, and Devaraja Market. Famous for Dasara festival. We cover Mysore in our Karnataka tours!";
+  }
+
+  if (msg.match(/\bgoa\b/)) {
+    return "🏖️ Goa — India's beach paradise! Top places: Calangute & Baga Beach, Dudhsagar Waterfalls, Fort Aguada, Old Goa churches, Palolem Beach, and Spice Plantations. Best season: Nov–Feb. We offer Goa packages with AC vehicles!";
+  }
+
+  if (msg.match(/\bkerala\b/)) {
+    return "🌴 Kerala — God's Own Country! Highlights: Alleppey Backwaters, Munnar Tea Gardens, Wayanad Wildlife, Kovalam Beach, Thekkady Periyar Reserve, and Fort Kochi. Best season: Sep–Mar. Ask about our Kerala houseboat packages!";
+  }
+
+  if (msg.match(/\bhampi\b/)) {
+    return "🏛️ Hampi — a UNESCO World Heritage Site! Explore Virupaksha Temple, Vittala Temple (Stone Chariot), Elephant Stables, Lotus Mahal, Tungabhadra River, and the Achyutaraya Temple complex. Best season: Oct–Feb.";
+  }
+
+  if (msg.match(/\bbangalore\b|bengaluru/)) {
+    return "🌆 Bengaluru, the Garden City! Lalbagh Botanical Garden, Cubbon Park, Bangalore Palace, ISKCON Temple, Nandi Hills nearby. We operate all Bangalore-to-destination routes!";
+  }
+
+  if (msg.match(/\bmanali\b/)) {
+    return "❄️ Manali is a Himalayan paradise! Rohtang Pass, Solang Valley, Hadimba Temple, Vashisht Hot Springs, and the Beas River. Best season: May–Jun & Oct–Nov.";
+  }
+
+  if (msg.match(/\brameshwaram\b/)) {
+    return "🌊 Rameswaram — one of the char dham pilgrimage sites! Ramanathaswamy Temple, Pamban Bridge, Dhanushkodi, Agni Theertham Beach. We offer pilgrimage tour packages!";
+  }
+
+  if (msg.match(/\bkanyakumari\b/)) {
+    return "🌅 Kanyakumari — the southernmost tip of India! Vivekananda Rock Memorial, Thiruvalluvar Statue, Kumari Amman Temple, sunrise and sunset views. Perfect year-round destination!";
+  }
+
+  if (msg.match(/\bvehicle|car|bus|tempo|traveller|seater\b/)) {
+    return "🚗 Our fleet includes: 4+1 Seater (Dzire/Amaze), 6+1 Seater (Innova Crysta), 12 Seater (Tempo Traveller), 17 Seater Mini Bus, 20–32 Seater AC Bus, and 40–50 Seater Luxury Bus. All vehicles are AC and GPS-tracked! Visit our Vehicles page or call 9663202989 for rates.";
+  }
+
+  if (msg.match(/\bprice|cost|rate|tariff|charge|fare|how much\b/)) {
+    return "💰 Pricing depends on destination, vehicle type, and duration. For accurate quotes, call us at 📞 9663202989 or email lakkiholidays@gmail.com. We offer competitive rates with no hidden charges!";
+  }
+
+  if (msg.match(/\bbook|booking|reserve|reservation|tour|package\b/)) {
+    return "📅 To book a tour, call us at 📞 9663202989 or WhatsApp the same number. You can also email lakkiholidays@gmail.com with your destination, travel dates, number of passengers, and preferred vehicle. We'll get back to you within 2 hours!";
+  }
+
+  if (msg.match(/\bcontact|phone|number|call|email\b/)) {
+    return "📞 Contact LAKKI HOLIDAYS:\n• Phone/WhatsApp: 9663202989\n• Email: lakkiholidays@gmail.com\nWe're available 7 days a week, 8 AM – 9 PM.";
+  }
+
+  if (msg.match(/\bwhatsapp\b/)) {
+    return "💬 You can WhatsApp us directly at 9663202989. Click the WhatsApp icon on the bottom-right of the page to start a chat instantly!";
+  }
+
+  if (msg.match(/\brating|review|feedback|testimonial\b/)) {
+    return "⭐ We're proud of our 4.8★ average rating! Check out our Ratings page to read reviews from happy travellers. Your feedback helps us serve you better!";
+  }
+
+  if (msg.match(/\babout|company|who are you|lakki holidays\b/)) {
+    return "🏢 LAKKI HOLIDAYS is a trusted travel company offering tours across India. From pilgrimage trips to leisure holidays, corporate travel to adventure tours — we cover it all with a fleet of well-maintained AC vehicles. Contact: 9663202989.";
+  }
+
+  if (msg.match(/\bhelp|what can you do|options\b/)) {
+    return "🤖 I can help you with:\n• Popular destinations (Coorg, Ooty, Goa, Kerala, Mysore, Hampi...)\n• Vehicle info & fleet\n• Tour packages & booking\n• Pricing & rates\n• Contact details\n\nJust type your question!";
+  }
+
+  if (msg.match(/\bthank|thanks|thank you\b/)) {
+    return "You're welcome! 😊 Happy to help. For bookings or more info, call 9663202989. Have a wonderful trip with LAKKI HOLIDAYS! ✈️";
+  }
+
+  return "I'm not sure about that, but our team can help! 📞 Call us at 9663202989 or email lakkiholidays@gmail.com — we're available 7 days a week. You can also ask me about destinations, vehicles, or booking!";
+}
+
+// ── Chatbot Panel ──────────────────────────────────────────────────────────────
+
+function ChatbotPanel({ onClose }: { onClose: () => void }) {
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      id: nextMsgId(),
+      role: "bot",
+      text: "Namaste! 🙏 I'm your LAKKI HOLIDAYS travel assistant. Ask me about destinations, vehicles, pricing, or bookings!",
+    },
+  ]);
+  const [inputValue, setInputValue] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: scroll triggered by messages/typing state changes
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isTyping]);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const sendMessage = () => {
+    const text = inputValue.trim();
+    if (!text) return;
+
+    setMessages((prev) => [...prev, { id: nextMsgId(), role: "user", text }]);
+    setInputValue("");
+    setIsTyping(true);
+
+    setTimeout(
+      () => {
+        const reply = getBotReply(text);
+        setIsTyping(false);
+        setMessages((prev) => [
+          ...prev,
+          { id: nextMsgId(), role: "bot", text: reply },
+        ]);
+      },
+      600 + Math.random() * 400,
+    );
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") sendMessage();
+  };
+
+  return (
+    <div
+      data-ocid="chatbot.dialog"
+      className="fixed bottom-4 right-4 z-[9000] w-[340px] max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl shadow-2xl overflow-hidden"
+      style={{
+        background: "#fff",
+        border: "1.5px solid rgba(0,0,0,0.08)",
+        maxHeight: "min(520px, calc(100vh - 6rem))",
+      }}
+    >
+      {/* Chat header */}
+      <div
+        className="flex items-center justify-between px-4 py-3"
+        style={{
+          background: "var(--color-primary, #1e40af)",
+          color: "#fff",
+          flexShrink: 0,
+        }}
+      >
+        <div className="flex items-center gap-2">
+          <div
+            className="w-8 h-8 rounded-full flex items-center justify-center text-sm"
+            style={{ background: "rgba(255,255,255,0.2)" }}
+          >
+            🌍
+          </div>
+          <div>
+            <div className="font-bold text-sm leading-tight">
+              LAKKI HOLIDAYS Assistant
+            </div>
+            <div className="text-xs opacity-75 leading-tight">
+              Always here to help ✈️
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+          data-ocid="chatbot.close_button"
+          onClick={onClose}
+          className="p-1.5 rounded-full hover:bg-white/20 transition-colors"
+          aria-label="Close chat"
+        >
+          <X size={16} />
+        </button>
+      </div>
+
+      {/* Messages area */}
+      <div
+        className="flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-2"
+        style={{ background: "#f9fafb", minHeight: 0 }}
+      >
+        {messages.map((msg) => (
+          <div
+            key={msg.id}
+            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+          >
+            {msg.role === "bot" && (
+              <div
+                className="w-6 h-6 rounded-full flex items-center justify-center text-xs mr-1.5 flex-shrink-0 self-end"
+                style={{
+                  background: "var(--color-primary, #1e40af)",
+                  color: "#fff",
+                }}
+              >
+                🌍
+              </div>
+            )}
+            <div
+              className="max-w-[80%] px-3 py-2 rounded-2xl text-sm leading-relaxed whitespace-pre-line"
+              style={
+                msg.role === "user"
+                  ? {
+                      background: "var(--color-primary, #1e40af)",
+                      color: "#fff",
+                      borderBottomRightRadius: "4px",
+                    }
+                  : {
+                      background: "#fff",
+                      color: "#1a1a2e",
+                      border: "1px solid #e5e7eb",
+                      borderBottomLeftRadius: "4px",
+                      boxShadow: "0 1px 2px rgba(0,0,0,0.05)",
+                    }
+              }
+            >
+              {msg.text}
+            </div>
+          </div>
+        ))}
+
+        {isTyping && (
+          <div className="flex justify-start">
+            <div
+              className="w-6 h-6 rounded-full flex items-center justify-center text-xs mr-1.5 self-end"
+              style={{
+                background: "var(--color-primary, #1e40af)",
+                color: "#fff",
+              }}
+            >
+              🌍
+            </div>
+            <div
+              className="px-3 py-2 rounded-2xl text-sm"
+              style={{
+                background: "#fff",
+                border: "1px solid #e5e7eb",
+                borderBottomLeftRadius: "4px",
+              }}
+            >
+              <span className="inline-flex gap-1 items-center">
+                <span
+                  className="w-1.5 h-1.5 rounded-full animate-bounce"
+                  style={{
+                    background: "var(--color-primary, #1e40af)",
+                    animationDelay: "0ms",
+                  }}
+                />
+                <span
+                  className="w-1.5 h-1.5 rounded-full animate-bounce"
+                  style={{
+                    background: "var(--color-primary, #1e40af)",
+                    animationDelay: "150ms",
+                  }}
+                />
+                <span
+                  className="w-1.5 h-1.5 rounded-full animate-bounce"
+                  style={{
+                    background: "var(--color-primary, #1e40af)",
+                    animationDelay: "300ms",
+                  }}
+                />
+              </span>
+            </div>
+          </div>
+        )}
+
+        <div ref={messagesEndRef} />
+      </div>
+
+      {/* Quick replies */}
+      <div
+        className="flex gap-1.5 px-3 py-2 overflow-x-auto flex-shrink-0"
+        style={{
+          background: "#f3f4f6",
+          borderTop: "1px solid #e5e7eb",
+          scrollbarWidth: "none",
+        }}
+      >
+        {["Coorg", "Ooty", "Goa", "Kerala", "Booking", "Vehicles"].map((q) => (
+          <button
+            key={q}
+            type="button"
+            onClick={() => {
+              setInputValue(q);
+              setTimeout(() => {
+                setMessages((prev) => [
+                  ...prev,
+                  { id: nextMsgId(), role: "user", text: q },
+                ]);
+                setInputValue("");
+                setIsTyping(true);
+                setTimeout(
+                  () => {
+                    const reply = getBotReply(q);
+                    setIsTyping(false);
+                    setMessages((prev) => [
+                      ...prev,
+                      { id: nextMsgId(), role: "bot", text: reply },
+                    ]);
+                  },
+                  600 + Math.random() * 400,
+                );
+              }, 0);
+            }}
+            className="whitespace-nowrap px-2.5 py-1 rounded-full text-xs font-medium transition-colors flex-shrink-0"
+            style={{
+              background: "#fff",
+              border: "1px solid #d1d5db",
+              color: "#374151",
+              cursor: "pointer",
+            }}
+          >
+            {q}
+          </button>
+        ))}
+      </div>
+
+      {/* Input row */}
+      <div
+        className="flex items-center gap-2 px-3 py-2.5 flex-shrink-0"
+        style={{ background: "#fff", borderTop: "1px solid #e5e7eb" }}
+      >
+        <input
+          ref={inputRef}
+          type="text"
+          data-ocid="chatbot.input"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Ask about destinations, booking…"
+          className="flex-1 text-sm px-3 py-2 rounded-full outline-none"
+          style={{
+            background: "#f3f4f6",
+            border: "1.5px solid #e5e7eb",
+            color: "#1a1a2e",
+            minWidth: 0,
+          }}
+        />
+        <button
+          type="button"
+          data-ocid="chatbot.submit_button"
+          onClick={sendMessage}
+          disabled={!inputValue.trim()}
+          className="w-9 h-9 rounded-full flex items-center justify-center transition-opacity flex-shrink-0"
+          style={{
+            background: "var(--color-primary, #1e40af)",
+            color: "#fff",
+            opacity: inputValue.trim() ? 1 : 0.4,
+            cursor: inputValue.trim() ? "pointer" : "not-allowed",
+          }}
+          aria-label="Send message"
+        >
+          <Send size={15} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── India map logo ──────────────────────────────────────────────────────────────
 
 /** Inline SVG: India map outline with Kanyakumari→Kashmir route + pins */
 function IndiaMapLogo({ onClick }: { onClick: () => void }) {
@@ -228,6 +611,8 @@ function MapModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   );
 }
 
+// ── Header ─────────────────────────────────────────────────────────────────────
+
 export default function Header() {
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
@@ -238,6 +623,7 @@ export default function Header() {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [mapModalOpen, setMapModalOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -319,6 +705,21 @@ export default function Header() {
             >
               📞 Call Now
             </a>
+            {/* AI Chat button — desktop */}
+            <button
+              type="button"
+              data-ocid="header.chat_button"
+              onClick={() => setChatOpen((o) => !o)}
+              className={`ml-2 px-4 py-2 rounded-md text-sm font-semibold transition-colors min-h-[44px] flex items-center gap-1.5 ${
+                chatOpen
+                  ? "bg-white text-primary"
+                  : "bg-white/20 hover:bg-white/30 text-white"
+              }`}
+              aria-label="Open travel assistant chat"
+            >
+              <MessageCircle size={16} />
+              <span>AI Chat</span>
+            </button>
             {deferredPrompt && (
               <button
                 type="button"
@@ -332,6 +733,20 @@ export default function Header() {
 
           {/* Mobile right actions */}
           <div className="md:hidden flex items-center gap-2">
+            {/* AI Chat icon — mobile */}
+            <button
+              type="button"
+              data-ocid="header.chat_button"
+              onClick={() => setChatOpen((o) => !o)}
+              className={`p-2.5 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
+                chatOpen
+                  ? "bg-white text-primary"
+                  : "hover:bg-white/10 text-white"
+              }`}
+              aria-label="Open travel assistant chat"
+            >
+              <MessageCircle size={20} />
+            </button>
             {deferredPrompt && (
               <button
                 type="button"
@@ -384,6 +799,9 @@ export default function Header() {
 
       {/* India map route modal */}
       <MapModal open={mapModalOpen} onClose={() => setMapModalOpen(false)} />
+
+      {/* AI Chatbot panel */}
+      {chatOpen && <ChatbotPanel onClose={() => setChatOpen(false)} />}
     </>
   );
 }

@@ -10,6 +10,14 @@ interface Vehicle {
 
 const vehicles: Vehicle[] = [
   {
+    name: "Maruti Dzire / Honda Amaze",
+    capacity: "4+1 Seater",
+    features: ["AC", "Music System", "Fuel Efficient", "Comfortable"],
+    image: "/assets/generated/sedan-4plus1-360.dim_800x500.png",
+    description:
+      "Compact sedan ideal for small families and couple trips — smooth, affordable, and comfortable.",
+  },
+  {
     name: "Toyota Innova Crysta",
     capacity: "6-7 Seater",
     features: ["AC", "Music System", "GPS", "Comfortable Seats"],
@@ -182,6 +190,34 @@ function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
         >
           {show360 ? "📷 Photo" : "🔄 360°"}
         </button>
+        {/* LAKKI HOLIDAYS sticker */}
+        <div className="absolute top-3 left-1/2 -translate-x-1/2 pointer-events-none select-none z-10">
+          <div
+            style={{
+              background: "linear-gradient(135deg, #ff6b00 0%, #ffcc00 100%)",
+              border: "2.5px solid #fff",
+              borderRadius: "8px",
+              padding: "4px 14px",
+              boxShadow: "0 2px 10px rgba(0,0,0,0.45)",
+              transform: "rotate(-8deg)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <span
+              style={{
+                fontWeight: 900,
+                fontSize: "15px",
+                color: "#1a1a1a",
+                letterSpacing: "1.5px",
+                textTransform: "uppercase",
+                textShadow: "0 1px 2px rgba(255,255,255,0.4)",
+                fontFamily: "Arial Black, Arial, sans-serif",
+              }}
+            >
+              LAKKI HOLIDAYS
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* Info */}
