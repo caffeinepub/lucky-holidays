@@ -6,7 +6,10 @@ import {
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
+import { useCallback, useState } from "react";
 import Layout from "./components/Layout";
+import PasswordGate from "./components/PasswordGate";
+import SplashScreen from "./components/SplashScreen";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Destination from "./pages/Destination";
@@ -78,9 +81,15 @@ declare module "@tanstack/react-router" {
 }
 
 export default function App() {
+  const [unlocked, setUnlocked] = useState(false);
+  const [splashDone, setSplashDone] = useState(false);
+  const handleSplashDone = useCallback(() => setSplashDone(true), []);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      {!unlocked && <PasswordGate onUnlock={() => setUnlocked(true)} />}
+      {unlocked && !splashDone && <SplashScreen onDone={handleSplashDone} />}
+      {unlocked && <RouterProvider router={router} />}
     </QueryClientProvider>
   );
 }
