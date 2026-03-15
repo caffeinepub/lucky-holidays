@@ -1,0 +1,32 @@
+{
+  "name": "Lucky Holidays",
+  "short_name": "Lucky Holidays",
+  "description": "Your trusted travel partner for comfortable, affordable, and unforgettable journeys across India.",
+  "theme_color": "#1a4731",
+  "background_color": "#f3f4f6",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "orientation": "portrait",
+  "categories": ["travel", "lifestyle"],
+  "icons": [
+    {
+      "src": "/assets/generated/lucky-holidays-icon-192.dim_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/generated/lucky-holidays-icon-512.dim_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/generated/lucky-holidays-logo.dim_200x200.png",
+      "sizes": "200x200",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
